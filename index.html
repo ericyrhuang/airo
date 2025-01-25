@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIRO - AI Research Oxford | Student-Run AI Research Community</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AIRO is Oxford University's student-run AI/ML research community. Join our weekly hack sessions and explore the frontier of AI models with fellow researchers and builders.">
+    <meta name="keywords" content="Oxford University AI, AIRO, AI research, machine learning, Oxford CS, student researchers, AI community">
+    <meta name="author" content="AI Research Oxford">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="AIRO - AI Research Oxford">
+    <meta property="og:description" content="Join Oxford's student-run AI/ML research community. Weekly hack sessions and collaborative research opportunities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://airo.org.uk">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIRO - AI Research Oxford">
+    <meta name="twitter:description" content="Join Oxford's student-run AI/ML research community. Weekly hack sessions and collaborative research opportunities.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://airo.org.uk" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header role="banner">
+            <h1 id="header-title"></h1>
+        </header>
+
+        
+        <main role="main">
+            <em class="tagline">We all say we're doing research during term time, but we never are.</em>
+            <div class="join-us">
+                <a href="https://discord.gg/u9KzfEHWXC" class="join-button">Join our Discord Server</a>
+            </div>
+
+            <section class="about">
+                <h2>WHO WE ARE</h2>
+                <p class="lead">We're a student run CS/AI/ML lab, a small technical community exploring the frontier of models. We run weekly hack sessions every Saturday 1-7pm at CS deparment labs, all programmers are welcome! The sessions are chill and come and go as you please (though we do hope you'll stay for all of it). Ping us on discord when you arrive and we'll come get you.</p>
+                <p>If you're interested in speaking at one of our events, email us.</p>
+            </section>
+
+            <section class="who-we-want">
+                <h2>WHO WE WANT</h2>
+                <p>Student researchers who want built-in structure for their research. Builds and hackers who want to create.</p>
+                <p class="motto">If you're not pushing boundaries, you're wasting your time.</p>
+            </section>
+
+
+            <section class="supporters">
+                <p class="team">The society is run by <a href="https://ericyrhuang.com"> Eric</a> and friends.</p>
+            </section>
+
+
+        </main>
+
+        <footer role="contentinfo">
+            <div class="social-links">
+                <a href="mailto:contact@airo.org.uk">Email</a>
+                <span class="separator">•</span>
+                <a href="#twitter">Twitter</a>
+            </div>
+            <p class="copyright">© 2025 AI Research Oxford. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Schema.org markup for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AI Research Oxford",
+        "alternateName": "AIRO",
+        "description": "Student-run AI/ML research community at Oxford University",
+        "url": "https://airo.org.uk",
+        "email": "contact@airo.org.uk",
+        "member": {
+            "@type": "Person",
+            "name": "Eric"
+        },
+        "location": {
+            "@type": "Place",
+            "name": "Oxford University Computer Science Department"
+        },
+        "event": {
+            "@type": "Event",
+            "name": "Weekly Hack Sessions",
+            "description": "Weekly AI/ML hack sessions for Oxford students",
+            "startDate": "2024-01-01",
+            "endDate": "2024-12-31",
+            "dayOfWeek": "Saturday",
+            "startTime": "13:00",
+            "endTime": "19:00",
+            "eventAttendanceMode": "OfflineEventAttendanceMode"
+        }
+    }
+    </script>
+
+    <script>
+        const texts = ["AIRO", "AI Research Oxford"];
+        let currentTextIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 50;
+        const deletingSpeed = 80;
+        const delayBetweenTexts = 3000;
+        const pauseAfterDelete = 1000;
+
+        function typeWriter() {
+            const headerTitle = document.getElementById('header-title');
+            const currentText = texts[currentTextIndex];
+
+            if (isDeleting) {
+                headerTitle.textContent = currentText.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    currentTextIndex = (currentTextIndex + 1) % texts.length;
+                    setTimeout(typeWriter, pauseAfterDelete);
+                } else {
+                    setTimeout(typeWriter, deletingSpeed);
+                }
+            } else {
+                headerTitle.textContent = currentText.substring(0, charIndex++);
+                if (charIndex > currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, delayBetweenTexts);
+                } else {
+                    setTimeout(typeWriter, typingSpeed);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            typeWriter();
+        });
+    </script>
+</body>
+</html> 
